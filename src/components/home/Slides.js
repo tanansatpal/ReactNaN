@@ -9,7 +9,7 @@ const settings = {
   container: '.home-full-slider-wrapper',
   items: 1,
   slideBy: 'page',
-  autoplay: true
+  autoWidth: true
 };
 
 class Slides extends React.Component {
@@ -30,7 +30,7 @@ class Slides extends React.Component {
       {imgs.map((slide, index) => (
         <div key={index} className="item home-full-item">
           <img src={'https://cdn.storehippo.com/s/576253cbd08b24115d6731e6/' + slide.image}
-               alt={slide.title}/>
+               alt={slide.title} style={{width: '100%'}}/>
           {/*{slide.description}*/}
         </div>
       ))}
