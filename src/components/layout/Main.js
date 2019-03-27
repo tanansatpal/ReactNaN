@@ -278,14 +278,30 @@ const brands = [
   }
 ];
 
-function Main() {
-  return (<div>
-      <Slides slides={imgs}/>
-      <CategoryBanner/>
-      <HomeBanner/>
-      <Brands brands={brands}/>
-    </div>
-  )
+class Main extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      isLoading: true,
+      slides: [],
+      banners: []
+    };
+  }
+
+  componentDidMount() {
+
+  }
+
+  render() {
+    return (<div>
+        <Slides slides={imgs}/>
+        <CategoryBanner/>
+        <HomeBanner/>
+        <Brands brands={brands}/>
+      </div>
+    )
+  }
 }
 
 
