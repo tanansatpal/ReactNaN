@@ -1,5 +1,8 @@
 import React from 'react'
 import Slides from "../home/Slides";
+import CategoryBanner from "../home/CategoryBanner";
+import HomeBanner from "../home/HomeBanner";
+import Brands from "../home/Brands";
 
 const imgs = [
   {
@@ -82,8 +85,206 @@ const imgs = [
   }
 ];
 
+const brands = [
+  {
+    "_id": "5c7930202451f16aa72ec27d",
+    "_metadata": {"i18n": {"EN": {}}},
+    "publish": "1",
+    "alias": "brand-7",
+    "images": [{
+      "image": "ms.brands/5c7930202451f16aa72ec27d/5c79301b50c72a6aa4c2ee55.svg",
+      "_metadata": {
+        "image": {
+          "name": "brand-1.svg",
+          "type": "image/svg+xml",
+          "size": 15984,
+          "versioning": true,
+          "_id": "5c79301b50c72a6aa4c2ee55"
+        }
+      },
+      "_id": "5c7930202451f16aa72ec27e"
+    }
+    ],
+    "SEO": {},
+    "facet_group": "",
+    "name": "Brand 7",
+    "sort_order": 0,
+    "created_on": "2019-03-01T13:14:09.352Z",
+    "_created_by": "5c73f85cc4f47113d379b8cc",
+    "image": "ms.brands/5c7930202451f16aa72ec27d/5c79301b50c72a6aa4c2ee55.svg"
+  },
+  {
+    "_id": "5c79300550c72a6aa4c2edae",
+    "_metadata": {"i18n": {"EN": {}}},
+    "publish": "1",
+    "alias": "brand-6",
+    "images": [{
+      "image": "ms.brands/5c79300550c72a6aa4c2edae/5c79300150c72a6aa4c2ed8f.svg",
+      "_metadata": {
+        "image": {
+          "name": "brand-6.svg",
+          "type": "image/svg+xml",
+          "size": 15419,
+          "versioning": true,
+          "_id": "5c79300150c72a6aa4c2ed8f"
+        }
+      },
+      "_id": "5c79300550c72a6aa4c2edaf"
+    }
+    ],
+    "SEO": {},
+    "facet_group": "",
+    "name": "Brand 6",
+    "sort_order": 0,
+    "created_on": "2019-03-01T13:13:42.985Z",
+    "_created_by": "5c73f85cc4f47113d379b8cc",
+    "image": "ms.brands/5c79300550c72a6aa4c2edae/5c79300150c72a6aa4c2ed8f.svg"
+  },
+  {
+    "_id": "5c792ff92451f16aa72ec135",
+    "_metadata": {"i18n": {"EN": {}}},
+    "publish": "1",
+    "alias": "brand-5",
+    "images": [{
+      "image": "ms.brands/5c792ff92451f16aa72ec135/5c792ff5b586856ae96159ee.svg",
+      "_metadata": {
+        "image": {
+          "name": "brand-5.svg",
+          "type": "image/svg+xml",
+          "size": 9257,
+          "versioning": true,
+          "_id": "5c792ff5b586856ae96159ee"
+        }
+      },
+      "_id": "5c792ff92451f16aa72ec136"
+    }
+    ],
+    "SEO": {},
+    "facet_group": "",
+    "name": "Brand 5",
+    "sort_order": 0,
+    "created_on": "2019-03-01T13:13:30.757Z",
+    "_created_by": "5c73f85cc4f47113d379b8cc",
+    "image": "ms.brands/5c792ff92451f16aa72ec135/5c792ff5b586856ae96159ee.svg"
+  },
+  {
+    "_id": "5c792fed7458da6ae0270394",
+    "_metadata": {"i18n": {"EN": {}}},
+    "publish": "1",
+    "alias": "brand-4",
+    "images": [{
+      "image": "ms.brands/5c792fed7458da6ae0270394/5c792fe950c72a6aa4c2ecc1.svg",
+      "_metadata": {
+        "image": {
+          "name": "brand-4.svg",
+          "type": "image/svg+xml",
+          "size": 40968,
+          "versioning": true,
+          "_id": "5c792fe950c72a6aa4c2ecc1"
+        }
+      },
+      "_id": "5c792fed7458da6ae0270395"
+    }
+    ],
+    "SEO": {},
+    "facet_group": "",
+    "name": "Brand 4",
+    "sort_order": 0,
+    "created_on": "2019-03-01T13:13:18.133Z",
+    "_created_by": "5c73f85cc4f47113d379b8cc",
+    "image": "ms.brands/5c792fed7458da6ae0270394/5c792fe950c72a6aa4c2ecc1.svg"
+  },
+  {
+    "_id": "5c792fe150c72a6aa4c2ec80",
+    "_metadata": {"i18n": {"EN": {}}},
+    "publish": "1",
+    "alias": "brand-3",
+    "images": [{
+      "image": "ms.brands/5c792fe150c72a6aa4c2ec80/5c792fdc7458da6ae02702f3.svg",
+      "_metadata": {
+        "image": {
+          "name": "brand-3.svg",
+          "type": "image/svg+xml",
+          "size": 21258,
+          "versioning": true,
+          "_id": "5c792fdc7458da6ae02702f3"
+        }
+      },
+      "_id": "5c792fe150c72a6aa4c2ec81"
+    }
+    ],
+    "SEO": {},
+    "facet_group": "",
+    "name": "Brand 3",
+    "sort_order": 0,
+    "created_on": "2019-03-01T13:13:06.334Z",
+    "_created_by": "5c73f85cc4f47113d379b8cc",
+    "image": "ms.brands/5c792fe150c72a6aa4c2ec80/5c792fdc7458da6ae02702f3.svg"
+  },
+  {
+    "_id": "5c792fd42451f16aa72ec010",
+    "_metadata": {"i18n": {"EN": {}}},
+    "publish": "1",
+    "alias": "brand-2",
+    "images": [{
+      "image": "ms.brands/5c792fd42451f16aa72ec010/5c792fc8b586856ae96158a9.svg",
+      "_metadata": {
+        "image": {
+          "name": "brand-2.svg",
+          "type": "image/svg+xml",
+          "size": 16575,
+          "versioning": true,
+          "_id": "5c792fc8b586856ae96158a9"
+        }
+      },
+      "_id": "5c792fd42451f16aa72ec011"
+    }
+    ],
+    "SEO": {},
+    "facet_group": "",
+    "name": "Brand 2",
+    "sort_order": 0,
+    "created_on": "2019-03-01T13:12:53.384Z",
+    "_created_by": "5c73f85cc4f47113d379b8cc",
+    "image": "ms.brands/5c792fd42451f16aa72ec010/5c792fc8b586856ae96158a9.svg"
+  },
+  {
+    "_id": "5c792f8c50c72a6aa4c2ea75",
+    "_metadata": {"i18n": {"EN": {}}},
+    "publish": "1",
+    "alias": "brand-1",
+    "images": [{
+      "image": "ms.brands/5c792f8c50c72a6aa4c2ea75/5c792f862451f16aa72ebe07.svg",
+      "_metadata": {
+        "image": {
+          "name": "brand-1.svg",
+          "type": "image/svg+xml",
+          "size": 15984,
+          "versioning": true,
+          "_id": "5c792f862451f16aa72ebe07"
+        }
+      },
+      "_id": "5c792f8c50c72a6aa4c2ea76"
+    }
+    ],
+    "SEO": {},
+    "facet_group": "",
+    "description": "",
+    "name": "Brand 1",
+    "sort_order": 0,
+    "created_on": "2019-03-01T13:11:40.934Z",
+    "_created_by": "5c73f85cc4f47113d379b8cc",
+    "image": "ms.brands/5c792f8c50c72a6aa4c2ea75/5c792f862451f16aa72ebe07.svg"
+  }
+];
+
 function Main() {
-  return (<Slides slides={imgs}/>
+  return (<div>
+      <Slides slides={imgs}/>
+      <CategoryBanner/>
+      <HomeBanner/>
+      <Brands brands={brands}/>
+    </div>
   )
 }
 

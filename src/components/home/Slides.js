@@ -28,12 +28,10 @@ class Slides extends React.Component {
     const imgs = this.props.slides;
     return (<section className="home-full-slider-wrapper mb-10px">
       {imgs.map((slide, index) => (
-        <div>
-          <div key={index} className="item home-full-item">
-            <img src={'https://cdn.storehippo.com/s/576253cbd08b24115d6731e6/' + slide.image}
-                 alt={slide.title}/>
-            {/*{slide.description}*/}
-          </div>
+        <div key={index} className="item home-full-item">
+          <img src={'https://cdn.storehippo.com/s/576253cbd08b24115d6731e6/' + slide.image}
+               alt={slide.title}/>
+          {/*{slide.description}*/}
         </div>
       ))}
     </section>)
