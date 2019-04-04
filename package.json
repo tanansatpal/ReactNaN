@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@loadable/component": "^5.7.0",
     "bootstrap": "^4.3.1",
     "node-sass": "^4.11.0",
     "react": "^16.8.3",
@@ -34,6 +35,7 @@
     "@types/react": "^16.8.9",
     "@types/react-dom": "^16.8.3",
     "@types/react-router-dom": "^4.3.1",
+    "@types/loadable__component": "^5.6.0",
     "source-map-explorer": "^1.8.0"
   }
 }

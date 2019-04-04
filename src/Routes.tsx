@@ -1,15 +1,15 @@
 import HomeModule from "./modules/home/home.module";
-// import loadable from '@loadable/component'
-//
-// const CategoryModule = loadable(() => import('./modules/category/category.module'));
-import CategoryModule from "./modules/category/category.module";
-import ProductModule from "./modules/product/product.module";
-import CartModule from "./modules/cart/cart.module";
-import CheckoutModule from "./modules/checkout/checkout.module";
-import UserModule from "./modules/user/user.module";
-import AuthModule from "./modules/auth/auth.module";
+import loadable from '@loadable/component'
 
-const routes = [
+const CategoryModule = loadable(() => import('./modules/category/category.module'));
+const ProductModule = loadable(() => import('./modules/product/product.module'));
+const CartModule = loadable(() => import('./modules/cart/cart.module'));
+const CheckoutModule = loadable(() => import('./modules/checkout/checkout.module'));
+const UserModule = loadable(() => import('./modules/user/user.module'));
+const AuthModule = loadable(() => import('./modules/auth/auth.module'));
+import {RouteProps} from "react-router";
+
+const routes: RouteProps[] = [
     {
         path: "/",
         exact: true,
@@ -17,7 +17,6 @@ const routes = [
     },
     {
         path: "/auth",
-        exact: false,
         component: AuthModule
     },
     {
