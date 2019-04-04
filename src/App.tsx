@@ -10,7 +10,7 @@ function App() {
             <div className="page-container">
                 <Header/>
                 <Switch>
-                    {routes.map(route => (<Route {...route}></Route>))}
+                    {routes.map((route, index) => (<Route key={index} {...route} />))}
                 </Switch>
                 <Footer/>
             </div>

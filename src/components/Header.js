@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 
 function Header() {
-  return (<header className="header header-absolute">
+  return (<header className={"header " + (window.location.pathname === "/" ? "header-absolute" : '')}>
       <div className="top-bar">
         <div className="container-fluid">
           <div className="row d-flex align-items-center">
@@ -11,7 +11,7 @@ function Header() {
               <ul className="list-inline mb-0">
                 <li className="list-inline-item pr-3 mr-0">
                   <svg className="svg-icon mr-2">
-                    <use xlinkHref="#calls-1"></use>
+                    <use xlinkHref="#calls-1"/>
                   </svg>
                   020-800-456-747
                 </li>
@@ -48,11 +48,11 @@ function Header() {
         </div>
       </div>
       <nav
-        className="navbar navbar-expand-lg bg-transparent navbar-sticky navbar-airy navbar-dark bg-hover-white bg-fixed-white navbar-hover-light navbar-fixed-light">
+        className={"navbar navbar-expand-lg navbar-sticky navbar-airy bg-fixed-white " + (window.location.pathname === "/" ? "bg-transparent bg-white navbar-dark bg-hover-white navbar-hover-light navbar-fixed-light" : 'navbar-light')}>
         <div className="container-fluid">
           <button type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
                   aria-expanded="false" aria-label="Toggle navigation" className="navbar-toggler navbar-toggler-right">
-            <i className="fa fa-bars"></i></button>
+            <i className="fa fa-bars"/></button>
           <div id="navbarCollapse" className="collapse navbar-collapse">
             <ul className="navbar-nav mx-auto">
               <li className="nav-item dropdown">
@@ -391,4 +391,5 @@ function Header() {
 }
 
 
-export default Header;
+export default Header
+;
