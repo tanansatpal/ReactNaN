@@ -1,15 +1,17 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import HomeModule from "./modules/home/home.module";
+import routes from "./Routes";
 
 function App() {
     return (
         <Router>
             <div className="page-container">
                 <Header/>
-                <Route exact path="/" component={HomeModule}/>
+                <Switch>
+                    {routes.map(route => (<Route {...route}></Route>))}
+                </Switch>
                 <Footer/>
             </div>
         </Router>
