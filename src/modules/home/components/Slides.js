@@ -1,6 +1,6 @@
 import React from 'react'
-import {tns} from "tiny-slider/src/tiny-slider.module"
-import "tiny-slider/dist/tiny-slider.css"
+// import {tns} from "tiny-slider/src/tiny-slider.module"
+// import "tiny-slider/dist/tiny-slider.css"
 
 
 const settings = {
@@ -17,7 +17,7 @@ class Slides extends React.Component {
 
 
   componentDidMount() {
-    this.slider = tns(settings);
+    // this.slider = tns(settings);
   }
 
   componentWillUnmount() {

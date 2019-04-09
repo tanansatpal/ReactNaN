@@ -1,20 +1,23 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, StaticRouter, Route, Switch} from 'react-router-dom';
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import routes from "./Routes";
+import {withRouter} from "react-router";
+
+const HeaderWithRouter = withRouter(Header);
 
 function App() {
     return (
-        <Router>
+        <StaticRouter>
             <div className="page-container">
-                <Header/>
+                <HeaderWithRouter/>
                 <Switch>
                     {routes.map((route, index) => (<Route key={index} {...route} />))}
                 </Switch>
                 <Footer/>
             </div>
-        </Router>
+        </StaticRouter>
     );
 }
 

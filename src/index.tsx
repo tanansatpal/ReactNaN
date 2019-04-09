@@ -6,7 +6,7 @@ import './assets/fonts/hkgrotesk/stylesheet.css';
 
 import App from './App';
 
-ReactDOM.render(
+ReactDOM.hydrate(
     <App/>,
     document.getElementById('root')
 );

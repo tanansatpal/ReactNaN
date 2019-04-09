@@ -1,5 +1,5 @@
 import React from 'react'
-import {tns} from "tiny-slider/src/tiny-slider.module"
+// import {tns} from "tiny-slider/src/tiny-slider.module"
 import "tiny-slider/dist/tiny-slider.css"
 
 const settings = {
@@ -17,7 +17,7 @@ class Brands extends React.Component {
 
 
   componentDidMount() {
-    this.slider = tns(settings);
+    // this.slider = tns(settings);
   }
 
   componentWillUnmount() {
@@ -26,7 +26,6 @@ class Brands extends React.Component {
 
   render() {
     const brands = this.props.brands;
-    console.log(brands)
     return (
       <section className="py-6 brands">
         <div className="container">

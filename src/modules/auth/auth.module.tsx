@@ -11,7 +11,6 @@ class AuthModule extends React.Component<RouteComponentProps> {
     }
 
     render() {
-        console.log(this.props);
         return (<div>
                 <section className="hero">
                     <div className="container">
