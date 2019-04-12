@@ -1,28 +1,19 @@
 import React from 'react'
-// import {tns} from "tiny-slider/src/tiny-slider.module"
-import "tiny-slider/dist/tiny-slider.css"
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.scss";
+import "slick-carousel/slick/slick-theme.scss";
 
 const settings = {
-  nav: true,
-  mouseDrag: true,
-  container: '.brands-slider',
-  items: 6,
-  controls: false,
-  center: true,
-  slideBy: 'page'
+  dots: true,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 6,
+  slidesToScroll: 1,
+  arrows: false,
+  mobileFirst: true
 };
 
 class Brands extends React.Component {
-  slider;
-
-
-  componentDidMount() {
-    // this.slider = tns(settings);
-  }
-
-  componentWillUnmount() {
-    if (this.slider) this.slider.destroy();
-  }
 
   render() {
     const brands = this.props.brands;
@@ -30,7 +21,7 @@ class Brands extends React.Component {
       <section className="py-6 brands">
         <div className="container">
           <h4 className="text-uppercase text-center mb-5">Our brands</h4>
-          <div className="brands-slider">
+          <Slider {...settings} className="brands-slider">
             {brands.map((brand, index) => (
               <div key={index} className="item align-items-center justify-content-center">
                 <div className="w-6rem">
@@ -39,7 +30,7 @@ class Brands extends React.Component {
                 </div>
               </div>
             ))}
-          </div>
+          </Slider>
         </div>
       </section>)
   }

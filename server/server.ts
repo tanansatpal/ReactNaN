@@ -15,18 +15,15 @@ const app = express();
 const router = express.Router();
 
 const serverRenderer = (req: Request, res: Response, next: NextFunction) => {
-    console.log("**********")
     fs.readFile(path.resolve('./build/index.html'), 'utf8', (err, data) => {
         if (err) {
-            console.error(err)
+            console.error(err);
             return res.status(500).send('An error occurred')
         }
         const context = {};
         const html = ReactDOMServer.renderToString(
             <StaticRouter location = {req.url}
-        context = {context} >
-            <App / >
-            </StaticRouter>);
+        context = {context} > <App / > </StaticRouter>)
         return res.send(
             data.replace(
                 '<div id="root"></div>',
@@ -36,10 +33,8 @@ const serverRenderer = (req: Request, res: Response, next: NextFunction) => {
     })
 }
 
-router.use(
-    express.static(path.resolve(__dirname, '..', 'build'), {maxAge: '30d'})
-)
-router.use(serverRenderer)
+app.use('/static',express.static(path.resolve(__dirname, '..', 'build','static'), {maxAge: '30d'}))
+app.use(serverRenderer)
 
 // tell the app to use the above rules
 app.use(router)
