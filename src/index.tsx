@@ -4,9 +4,9 @@ import './index.scss';
 import './assets/styles/styles.css';
 import './assets/fonts/hkgrotesk/stylesheet.css';
 
-import App from './App';
+import ClientRouter from './ClientRouter';
 
 ReactDOM.hydrate(
-    <App/>,
+    <ClientRouter/>,
     document.getElementById('root')
 );
