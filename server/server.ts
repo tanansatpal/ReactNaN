@@ -33,7 +33,7 @@ const serverRenderer = (req: Request, res: Response, next: NextFunction) => {
     })
 }
 
-app.use('/static',express.static(path.resolve(__dirname, '..', 'build','static'), {maxAge: '30d'}))
+app.use('/static', express.static(path.resolve(__dirname, '..', 'build', 'static'), {maxAge: '30d'}))
 app.use(serverRenderer)
 
 // tell the app to use the above rules
