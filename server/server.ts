@@ -35,11 +35,11 @@ const serverRenderer = (req: Request, res: Response, next: NextFunction) => {
         )
     })
 }
-router.use('^/$', serverRenderer)
 
 router.use(
     express.static(path.resolve(__dirname, '..', 'build'), {maxAge: '30d'})
 )
+router.use(serverRenderer)
 
 // tell the app to use the above rules
 app.use(router)
