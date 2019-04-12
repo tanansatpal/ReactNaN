@@ -3,6 +3,7 @@ import fs from 'fs'
 
 import express, {Request, Response, NextFunction} from 'express'
 import ReactDOMServer from 'react-dom/server'
+import React from 'react'
 
 import App from '../src/App'
 
