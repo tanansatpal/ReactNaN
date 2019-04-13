@@ -10,4 +10,4 @@ require('@babel/register')({
   }], '@babel/preset-react']
 });
 
-require('./server.ts');
+require('./server');
