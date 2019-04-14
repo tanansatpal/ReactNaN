@@ -9,6 +9,9 @@ import {StaticRouter} from "react-router";
 
 import App from '../src/App'
 
+// TODO
+//  add `new LoadablePlugin()` to webpack config plugins array and then build to generate this file.
+//  Find a solution that works without ejecting the react app
 const statsFile = path.resolve('./build/loadable-stats.json');
 
 const PORT = 8080;
