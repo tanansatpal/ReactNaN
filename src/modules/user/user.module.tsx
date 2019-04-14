@@ -1,18 +1,13 @@
 import React from 'react'
+import {Route, RouteComponentProps, Switch} from "react-router";
+import routes from "./UserRoutes";
 
-class UserModule extends React.Component {
 
-    componentDidMount() {
-
-    }
-
-    render() {
-        return (<div>
-                User Module
-            </div>
-        )
-    }
+export default function UserModule({match}: RouteComponentProps) {
+    return (<div>
+            <Switch>
+                {routes.map((route, index) => (<Route key={index} {...route} />))}
+            </Switch>
+        </div>
+    )
 }
-
-
-export default UserModule;

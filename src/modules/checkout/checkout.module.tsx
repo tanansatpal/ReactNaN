@@ -1,18 +1,13 @@
 import React from 'react'
+import {Route, RouteComponentProps, Switch} from "react-router";
+import routes from "./CheckoutRoutes";
 
-class CheckoutModule extends React.Component {
 
-    componentDidMount() {
-
-    }
-
-    render() {
-        return (<div>
-                Checkout Module
-            </div>
-        )
-    }
+export default function CheckoutModule({match}: RouteComponentProps) {
+    return (<div>
+            <Switch>
+                {routes.map((route, index) => (<Route key={index} {...route} />))}
+            </Switch>
+        </div>
+    )
 }
-
-
-export default CheckoutModule;
