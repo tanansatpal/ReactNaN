@@ -3,11 +3,13 @@ import path from 'path'
 import fs from 'fs'
 
 import express from 'express'
-import ReactDOMServer from 'react-dom/server'
-
+import {renderToString} from 'react-dom/server'
+import {ChunkExtractor} from '@loadable/server'
 import {StaticRouter} from "react-router";
 
 import App from '../src/App'
+
+const statsFile = path.resolve('./build/loadable-stats.json');
 
 const PORT = 8080;
 const app = express();
@@ -20,9 +22,10 @@ const serverRenderer = (req, res) => {
       console.error(err);
       return res.status(500).send('An error occurred')
     }
+    const extractor = new ChunkExtractor({statsFile});
     const context = {};
-    const html = ReactDOMServer.renderToString(
-      <StaticRouter location={req.url} context={context}> <App/> </StaticRouter>)
+    const jsx = extractor.collectChunks(<StaticRouter location={req.url} context={context}> <App/> </StaticRouter>)
+    const html = renderToString(jsx);
     return res.send(
       data.replace(
         '<div id="root"></div>',

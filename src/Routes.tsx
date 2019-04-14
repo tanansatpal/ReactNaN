@@ -21,32 +21,26 @@ const routes: RouteProps[] = [
     },
     {
         path: "/category",
-        exact: false,
         component: CategoryModule
     },
     {
         path: "/product",
-        exact: false,
         component: ProductModule
     },
     {
         path: "/cart",
-        exact: false,
         component: CartModule
     },
     {
         path: "/checkout",
-        exact: false,
         component: CheckoutModule
     },
     {
         path: "/user",
-        exact: false,
         component: UserModule
     },
     {
         path: '',
-        exact: false,
         component: AuthModule
     }
 ];
