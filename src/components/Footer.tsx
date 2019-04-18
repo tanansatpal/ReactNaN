@@ -7,7 +7,7 @@ export default function Footer() {
                     <div className="row">
                         <div className="col-lg-4 service-column">
                             <svg className="svg-icon service-icon">
-                                <use xlinkHref="#delivery-time-1"></use>
+                                <use xlinkHref="#delivery-time-1"/>
                             </svg>
                             <div className="service-text">
                                 <h6 className="text-uppercase">Free shipping &amp; return</h6>
@@ -16,7 +16,7 @@ export default function Footer() {
                         </div>
                         <div className="col-lg-4 service-column">
                             <svg className="svg-icon service-icon">
-                                <use xlinkHref="#money-1"></use>
+                                <use xlinkHref="#money-1"/>
                             </svg>
                             <div className="service-text">
                                 <h6 className="text-uppercase">Money back guarantee</h6>
@@ -26,7 +26,7 @@ export default function Footer() {
                         </div>
                         <div className="col-lg-4 service-column">
                             <svg className="svg-icon service-icon">
-                                <use xlinkHref="#customer-support-1"></use>
+                                <use xlinkHref="#customer-support-1"/>
                             </svg>
                             <div className="service-text">
                                 <h6 className="text-uppercase">020-800-456-747</h6>
@@ -45,8 +45,8 @@ export default function Footer() {
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
                             <ul className="list-inline">
                                 <li className="list-inline-item"><a href="#" target="_blank" title="twitter"
-                                                                    className="text-muted text-hover-primary"><i
-                                    className="fab fa-twitter"></i></a></li>
+                                                                    className="text-muted text-hover-primary">
+                                    <i className="fab fa-twitter"></i></a></li>
                                 <li className="list-inline-item"><a href="#" target="_blank" title="facebook"
                                                                     className="text-muted text-hover-primary"><i
                                     className="fab fa-facebook"></i></a></li>
