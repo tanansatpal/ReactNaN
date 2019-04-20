@@ -1,12 +1,12 @@
 import {AuthState} from "./types";
 import * as AuthActions from './Actions';
 
-const initialState: AuthState = {
+export const initialState: any = {
     isLoggedIn: false,
     user: null
 };
 
-export function AuthReducer(state = initialState, action: AuthActions.AuthUnion): AuthState {
+export function AuthReducer(state = initialState, action: any): AuthState {
     switch (action.type) {
         case AuthActions.AuthActionsTypes.LOGIN_SUCCESS: {
             return {

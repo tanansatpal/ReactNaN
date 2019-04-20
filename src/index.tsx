@@ -8,6 +8,11 @@ import configureStore from "./store";
 import ClientRouter from './ClientRouter';
 
 const store = configureStore();
+import {configureFakeBackend} from './helpers';
+
+if (process.env.NODE_ENV !== 'production') {
+    configureFakeBackend();
+}
 
 const Root = () => (
     <Provider store={store}>

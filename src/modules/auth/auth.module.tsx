@@ -1,6 +1,6 @@
 import React from 'react'
 import {Route, RouteComponentProps} from "react-router";
-import Login from "./components/Login";
+import LoginPage from "./components/Login";
 import Register from "./components/Register";
 import {Link} from "react-router-dom";
 
@@ -24,7 +24,7 @@ class AuthModule extends React.Component<RouteComponentProps> {
                         </div>
                     </div>
                 </section>
-                <Route path={`${this.props.match.path}/login`} component={Login}/>
+                <Route path={`${this.props.match.path}/login`} component={LoginPage}/>
                 <Route path={`${this.props.match.path}/register`} component={Register}/>
             </div>
         )
