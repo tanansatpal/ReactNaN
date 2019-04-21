@@ -4,6 +4,7 @@ import CategoryBanner from "../../modules/home/components/CategoryBanner";
 import HomeBanner from "../../modules/home/components/HomeBanner";
 import Brands from "../../modules/home/components/Brands";
 import {staticService} from "../../services/static.service";
+import {async} from "q";
 
 const imgs = [
     {
@@ -283,10 +284,14 @@ export default function HomeModule() {
 
     const [brands, setBrands] = useState([]);
 
-    useEffect(async function () {
+    async function getBrands() {
         let brands = await staticService.getBrands();
         setBrands(brands);
-    });
+    }
+
+    useEffect(() => {
+        getBrands();
+    }, []);
 
     return (<div>
         <Slides slides={imgs}/>

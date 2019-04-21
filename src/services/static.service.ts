@@ -4,7 +4,7 @@ function getBrands(filters: any = null) {
     return API.get('brands')
         .then(response => {
             console.log(response);
-            return response.data;
+            return response.data.data;
         });
 }
 
