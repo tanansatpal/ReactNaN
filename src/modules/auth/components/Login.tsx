@@ -1,8 +1,5 @@
-import React, {ReactPropTypes, SyntheticEvent, useEffect, useReducer} from 'react'
-import {AuthReducer, initialState} from "../store/Reducers";
-import {Login, LoginFailed, LoginSuccess} from "../store/Actions";
-import useForm from "../../../shared/hooks/useForm";
-import {userService} from "../../../services/auth.service";
+import React from 'react'
+import {Login} from "../store/Actions";
 import {connect} from "react-redux";
 
 interface LoginForm {
