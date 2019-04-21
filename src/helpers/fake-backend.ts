@@ -2,11 +2,10 @@ import {AxiosRequestConfig} from "axios";
 
 const applyFilters = function (request: AxiosRequestConfig, data: any) {
     const newData = JSON.parse(JSON.stringify(data));
-    let filters = request.params.get('q');
+    let filters = request.params.q;
     if (!filters) {
         return newData;
     }
-    filters = JSON.parse(filters);
     const allRecords = newData.data;
     newData.data = allRecords.filter((record: any) => {
         let addRecord = true;

@@ -5,10 +5,18 @@ import Header from "./components/Header";
 import routes from "./Routes";
 import {withRouter} from "react-router";
 import {library} from '@fortawesome/fontawesome-svg-core'
-import {faBars, faAngleDown, faTimes, faArrowRight} from '@fortawesome/free-solid-svg-icons'
+import {
+    faBars,
+    faAngleDown,
+    faTimes,
+    faArrowRight,
+    faSearch,
+    faShoppingCart,
+    faExpandArrowsAlt
+} from '@fortawesome/free-solid-svg-icons'
 import SvgSprites from "./components/SvgSprites";
 
-library.add(faBars, faAngleDown, faTimes, faArrowRight);
+library.add(faBars, faAngleDown, faTimes, faArrowRight, faSearch, faShoppingCart, faExpandArrowsAlt);
 const HeaderWithRouter = withRouter(Header);
 
 function App() {
