@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function CategoryBanner() {
   return (<section>
@@ -11,9 +13,8 @@ function CategoryBanner() {
               alt="Card" className="card-img"/>
             <div className="card-img-overlay d-flex align-items-center">
               <div className="w-100 py-3">
-                <h2 className="display-3 font-weight-bold mb-4">Top picks</h2><a href="category.html"
-                                                                                 className="btn btn-light">Shop
-                now</a>
+                <h2 className="display-3 font-weight-bold mb-4">Top picks</h2>
+                <Link to="/category" className="btn btn-light">Shop Now</Link>
               </div>
             </div>
           </div>
@@ -24,9 +25,8 @@ function CategoryBanner() {
             alt="Card" className="card-img"/>
             <div className="card-img-overlay d-flex align-items-center">
               <div className="w-100 py-3">
-                <h2 className="display-3 font-weight-bold mb-4">New arrivals</h2><a href="category.html"
-                                                                                    className="btn btn-light">Shop
-                now</a>
+                <h2 className="display-3 font-weight-bold mb-4">New arrivals</h2>
+                <Link to="/category" className="btn btn-light">Shop Now</Link>
               </div>
             </div>
           </div>
@@ -39,9 +39,10 @@ function CategoryBanner() {
             alt="Card" className="card-img"/>
             <div className="card-img-overlay d-flex align-items-center">
               <div className="w-100">
-                <h2 className="display-4 mb-4">Jackets</h2><a href="category.html"
-                                                              className="btn btn-link text-white">Shop now <i
-                className="fa-arrow-right fa ml-2"></i></a>
+                <h2 className="display-4 mb-4">Jackets</h2>
+                <Link to="/category" className="btn btn-light">Shop Now
+                  <FontAwesomeIcon icon="arrow-right" className="ml-2"/>
+                </Link>
               </div>
             </div>
           </div>
@@ -52,9 +53,10 @@ function CategoryBanner() {
             alt="Card" className="card-img"/>
             <div className="card-img-overlay d-flex align-items-center">
               <div className="w-100">
-                <h2 className="display-4 mb-4">Lookbook</h2><a href="category.html"
-                                                               className="btn btn-link text-white">Shop now <i
-                className="fa-arrow-right fa ml-2"></i></a>
+                <h2 className="display-4 mb-4">Lookbook</h2>
+                <Link to="/category" className="btn btn-light">Shop Now
+                  <FontAwesomeIcon icon="arrow-right" className="ml-2"/>
+                </Link>
               </div>
             </div>
           </div>
@@ -65,9 +67,10 @@ function CategoryBanner() {
             alt="Card" className="card-img"/>
             <div className="card-img-overlay d-flex align-items-center">
               <div className="w-100">
-                <h2 className="display-4 mb-4">Try this</h2><a href="category.html"
-                                                               className="btn btn-link text-dark">Shop now <i
-                className="fa-arrow-right fa ml-2"></i></a>
+                <h2 className="display-4 mb-4">Try this</h2>
+                <Link to="/category" className="btn btn-light">Shop Now
+                  <FontAwesomeIcon icon="arrow-right" className="ml-2"/>
+                </Link>
               </div>
             </div>
           </div>

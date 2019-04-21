@@ -45,7 +45,7 @@ const mock = new MockAdapter(Api, {delayResponse: 500});
 
 export function configureFakeBackend() {
 
-    mock.onGet('/api/v1/slides').reply(200, slidesResponse);
+    mock.onGet(/\/api\/v1\/slides$/).reply(200, slidesResponse);
     mock.onGet(/\/api\/v1\/brands$/).reply(200, brandsResponse);
     mock.onGet(/\/api\/v1\/collections$/).reply(200, collectionsResponse);
     mock.onGet(/\/api\/v1\/products$/).reply(200, productsResponse);
@@ -55,61 +55,27 @@ export function configureFakeBackend() {
         return [200, categoryDetailResponse];
     });
 
+    mock.onPost(/\/login/).reply(function (config) {
+        let body = JSON.parse(config.data);
+        const users = usersResponse.data;
+        const filteredUser = users
+            .filter((user: any) => {
+                return user.email === body.data.email && user.password === body.data.password;
+            })
+            .shift();
 
-    // if (url.endsWith('/v1/login') && opts.method === 'POST') {
-    //
-    //
-    //     let body = JSON.parse(opts.body);
-    //     // find if any user matches login credentials
-    //     const users = usersResponse.data;
-    //     const filteredUser = users
-    //         .filter((user: any) => {
-    //             return user.email === body.data.email && user.password === body.data.password;
-    //         })
-    //         .shift();
-    //
-    //     if (filteredUser) {
-    //         // if login details are valid return 200 OK with user details and fake jwt token
-    //         const body = {
-    //             id: filteredUser._id,
-    //             email: filteredUser.email,
-    //             firstName: filteredUser.first_name,
-    //             lastName: filteredUser.last_name,
-    //             currency: {name: 'INR', conversion_rate: 1, decimal_points: 0},
-    //             language: 'EN',
-    //             role: 'member',
-    //             token: 'fake-jwt-token'
-    //         };
-    //
-    //         return resolve({ok: true, text: () => Promise.resolve(JSON.stringify({data: body}))});
-    //     }
-    // }
-    //
-    // // get orders by user
-    // if (url.match(/\/api\/v1\/orders$/) && opts.method === 'GET') {
-    //     // check for fake auth token in header and return user if valid, this security is implemented server side in a real application
-    //     if (opts.headers.get('Authorization') === 'Bearer fake-jwt-token') {
-    //         resolve({ok: true, text: () => Promise.resolve(JSON.stringify(orderResponse))});
-    //     }
-    // }
-    //
-    // // get orders by user
-    // if (url.match(/\/api\/v1\/orders\/count$/) && opts.method === 'GET') {
-    //     // check for fake auth token in header and return user if valid, this security is implemented server side in a real application
-    //     if (opts.headers.get('Authorization') === 'Bearer fake-jwt-token') {
-    //         resolve({ok: true, text: () => Promise.resolve(orderResponse.data.length)});
-    //     }
-    // }
-    //
-    // // get order
-    // if (url.match(/\/api\/v1\/orders\/\w+$/) && opts.method === 'GET') {
-    //     // check for fake auth token in header and return user if valid, this security is implemented server side in a real application
-    //     if (opts.headers.get('Authorization') === 'Bearer fake-jwt-token') {
-    //         const orderId = url.match(/\/api\/v1\/orders\/(\w+)$/);
-    //         const order = orderResponse.data.find((o: any) => o._id === orderId);
-    //         const data = JSON.parse(JSON.stringify(order));
-    //         resolve({ok: true, text: () => Promise.resolve(JSON.stringify({data}))});
-    //     }
-    // }
-
+        if (filteredUser) {
+            const body = {
+                id: filteredUser._id,
+                email: filteredUser.email,
+                firstName: filteredUser.first_name,
+                lastName: filteredUser.last_name,
+                currency: {name: 'INR', conversion_rate: 1, decimal_points: 0},
+                language: 'EN',
+                role: 'member',
+                token: 'fake-jwt-token'
+            };
+            return [200, body];
+        } else return [401, null];
+    })
 }

@@ -1,4 +1,5 @@
 import {API_URL} from "../constant";
+import API from "../helpers/api";
 
 export const userService = {
     login,
@@ -6,18 +7,11 @@ export const userService = {
 };
 
 function login(data: { email: string, password: string }) {
-    const requestOptions = {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({data: data})
-    };
-
-    return fetch(`${API_URL}login`, requestOptions)
-        .then(handleResponse)
+    return API.post('login', {data}, {headers: {'Content-Type': 'application/json'}})
         .then(response => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
+            console.log(response);
             localStorage.setItem('token', response.data.token);
-            return response.data;
+            return response.data.data;
         });
 }
 
