@@ -1,4 +1,5 @@
 import {Action} from 'redux';
+import {userService} from "../../../services/auth.service";
 
 export enum AuthActionsTypes {
     LOGIN = '[Login Page] Login',
@@ -10,25 +11,29 @@ export enum AuthActionsTypes {
     AUTHORIZE = '[App Component] Authorize'
 }
 
-export class Login implements Action {
-    readonly type = AuthActionsTypes.LOGIN;
 
-    constructor(public payload: { username: string; password: string }) {
+export function Login(values: any) {
+    return async function (dispatch: any) {
+        const user = await userService.login(values).catch(err => {
+            dispatch(LoginFailed(err));
+        });
+        dispatch(LoginSuccess(user))
     }
 }
 
-export class LoginSuccess implements Action {
-    readonly type = AuthActionsTypes.LOGIN_SUCCESS;
-
-    constructor(public payload: { user: any }) {
+export function LoginSuccess(payload: any) {
+    return {
+        type: AuthActionsTypes.LOGIN_SUCCESS,
+        payload: payload
     }
 }
 
-export class LoginFailed implements Action {
-    readonly type = AuthActionsTypes.LOGIN_FAILED;
-
-    constructor(public payload: { error: any }) {
+export function LoginFailed(error: any) {
+    return {
+        type: AuthActionsTypes.LOGIN_FAILED,
+        payload: error
     }
+
 }
 
 export class Logout implements Action {
@@ -50,4 +55,4 @@ export class Authorize implements Action {
     readonly type = AuthActionsTypes.AUTHORIZE;
 }
 
-export type AuthUnion = Authorize | Login | LoginSuccess | LoginFailed | GetCurrentUser | Logout | LogoutSuccess;
+export type AuthUnion = Authorize | GetCurrentUser | Logout | LogoutSuccess;

@@ -75,7 +75,6 @@ export function configureFakeBackend() {
 
 
                     let body = JSON.parse(opts.body);
-                    console.log(body);
                     // find if any user matches login credentials
                     const users = usersResponse.data;
                     const filteredUser = users
@@ -83,8 +82,6 @@ export function configureFakeBackend() {
                             return user.email === body.data.email && user.password === body.data.password;
                         })
                         .shift();
-
-                    console.log(filteredUser);
 
                     if (filteredUser) {
                         // if login details are valid return 200 OK with user details and fake jwt token

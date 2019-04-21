@@ -3,7 +3,6 @@ import slides from './slides.json';
 import brands from './brands.json';
 import collections from './collections.json';
 import products from './products.json';
-// import * as users from './users.json';
 import users from './users.json';
 import categories from './categories.json';
 

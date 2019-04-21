@@ -2,8 +2,13 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import {RouteComponentProps} from "react-router";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {connect} from "react-redux";
 
-export default function Header(props: RouteComponentProps) {
+interface OwnProps extends RouteComponentProps {
+    isLoggedIn: boolean
+}
+
+function Header(props: OwnProps) {
     return (<header
             className={"header " + (props.location.pathname === "/" ? "header-absolute" : '')}>
             <div className="top-bar">
@@ -59,7 +64,7 @@ export default function Header(props: RouteComponentProps) {
             <nav
                 className={"navbar navbar-expand-lg navbar-sticky navbar-airy bg-fixed-white " + (props.location.pathname === "/" ? "bg-transparent bg-white navbar-dark bg-hover-white navbar-hover-light navbar-fixed-light" : 'navbar-light')}>
                 <div className="container-fluid">
-                    <a href="index.html" className="navbar-brand">
+                    <Link to="/" className="navbar-brand">
                         <svg className="navbar-brand-svg" viewBox="0 0 65 16" width="85" height="20" fill="none"
                              xmlns="http://www.w3.org/2000/svg">
                             <path className="navbar-brand-svg-text"
@@ -68,7 +73,7 @@ export default function Header(props: RouteComponentProps) {
                             <path className="text-primary" d="M62.0254 15.4219H64.418V18H62.0254V15.4219Z"
                                   transform="translate(0 -3)" fill="#9A6EE2"/>
                         </svg>
-                    </a>
+                    </Link>
                     <button type="button" data-toggle="collapse" data-target="#navbarCollapse"
                             aria-controls="navbarCollapse"
                             aria-expanded="false" aria-label="Toggle navigation"
@@ -219,9 +224,10 @@ export default function Header(props: RouteComponentProps) {
                                                     </ul>
                                                     <h6 className="text-uppercase">Customer</h6>
                                                     <ul className="megamenu-list list-unstyled">
-                                                        <li className="megamenu-list-item"><a href="customer-login.html"
-                                                                                              className="megamenu-list-link">Login/sign
-                                                            up </a>
+                                                        <li className="megamenu-list-item">
+                                                            <a href="customer-login.html"
+                                                               className="megamenu-list-link">Login/sign
+                                                                up </a>
                                                         </li>
                                                         <li className="megamenu-list-item"><a
                                                             href="customer-orders.html"
@@ -374,12 +380,20 @@ export default function Header(props: RouteComponentProps) {
                                     <use xlinkHref="#search-1"></use>
                                 </svg>
                             </div>
-                            <div className="nav-item"><Link to="/auth/login" className="navbar-icon-link">
-                                <svg className="svg-icon">
-                                    <use xlinkHref="#male-user-1"></use>
-                                </svg>
-                                <span
-                                    className="text-sm ml-2 ml-lg-0 text-uppercase text-sm font-weight-bold d-none d-sm-inline d-lg-none">Log in    </span></Link>
+                            <div className="nav-item">
+                                {props.isLoggedIn === true ? (<Link to="/user/profile" className="navbar-icon-link">
+                                    <svg className="svg-icon">
+                                        <use xlinkHref="#male-user-1"></use>
+                                    </svg>
+                                    <span
+                                        className="text-sm ml-2 ml-lg-0 text-uppercase text-sm font-weight-bold d-none d-sm-inline d-lg-none">Log in    </span>
+                                </Link>) : (<Link to="/auth/login" className="navbar-icon-link">
+                                    <svg className="svg-icon">
+                                        <use xlinkHref="#male-user-1"></use>
+                                    </svg>
+                                    <span
+                                        className="text-sm ml-2 ml-lg-0 text-uppercase text-sm font-weight-bold d-none d-sm-inline d-lg-none">Log in    </span>
+                                </Link>)}
                             </div>
                             <div className="nav-item dropdown"><Link to="/cart" className="navbar-icon-link d-lg-none">
                                 <svg className="svg-icon">
@@ -484,3 +498,11 @@ export default function Header(props: RouteComponentProps) {
         </header>
     )
 }
+
+function mapStateToProps(state: any) {
+    return {
+        isLoggedIn: state.auth.isLoggedIn
+    }
+}
+
+export default connect(mapStateToProps)(Header);
