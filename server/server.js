@@ -1,13 +1,13 @@
-import React from 'react'
 import path from 'path'
 import fs from 'fs'
 
 import express from 'express'
-import {renderToString} from 'react-dom/server'
-import {ChunkExtractor} from '@loadable/server'
-import {StaticRouter} from "react-router";
+import { renderToString } from 'react-dom/server'
+import { ChunkExtractor } from '@loadable/server'
 
-import App from '../src/App'
+import ServerApp from "./ServerApp";
+import { combineReducers, createStore } from "redux";
+import { AppReducer } from "../src/store/Reducers";
 
 // TODO
 //  add `new LoadablePlugin()` to webpack config plugins array and then build to generate this file.
@@ -26,13 +26,20 @@ const serverRenderer = (req, res) => {
       return res.status(500).send('An error occurred')
     }
     const extractor = new ChunkExtractor({statsFile});
+    const rootReducer = combineReducers(AppReducer);
+    const store = createStore(rootReducer);
     const context = {};
-    const jsx = extractor.collectChunks(<StaticRouter location={req.url} context={context}> <App/> </StaticRouter>)
+    const jsx = extractor.collectChunks(ServerApp(req, context, store));
     const html = renderToString(jsx);
+    const preloadedState = store.getState();
     return res.send(
       data.replace(
         '<div id="root"></div>',
-        `<div id="root">${html}</div>`
+        `<div id="root">${html}</div>
+        <script>
+          window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState)
+          .replace(/</g, '\\\u003c')}
+        </script>`
       )
     )
   })

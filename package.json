@@ -27,7 +27,8 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1",
-    "typescript": "^3.3.4000"
+    "typescript": "^3.3.4000",
+    "react-router": "^5.0.0"
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",

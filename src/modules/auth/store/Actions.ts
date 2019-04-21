@@ -36,23 +36,27 @@ export function LoginFailed(error: any) {
 
 }
 
-export class Logout implements Action {
-    readonly type = AuthActionsTypes.LOGOUT;
-}
-
-export class LogoutSuccess implements Action {
-    readonly type = AuthActionsTypes.LOGOUT_SUCCESS;
-
-    constructor(public payload: { user: any }) {
+export function Logout() {
+    return {
+        type: AuthActionsTypes.LOGOUT
     }
 }
 
-export class GetCurrentUser implements Action {
-    readonly type = AuthActionsTypes.GET_CURRENT_USER;
+export function LogoutSuccess(payload: any) {
+    return {
+        type: AuthActionsTypes.LOGOUT_SUCCESS,
+        payload
+    }
 }
 
-export class Authorize implements Action {
-    readonly type = AuthActionsTypes.AUTHORIZE;
+export function GetCurrentUser() {
+    return {
+        type: AuthActionsTypes.GET_CURRENT_USER
+    }
 }
 
-export type AuthUnion = Authorize | GetCurrentUser | Logout | LogoutSuccess;
+export function Authorize() {
+    return {
+        type: AuthActionsTypes.AUTHORIZE
+    }
+}

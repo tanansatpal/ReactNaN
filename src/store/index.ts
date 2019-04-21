@@ -8,8 +8,15 @@ const rootReducer = combineReducers(AppReducer);
 
 export type AppState = ReturnType<typeof rootReducer>;
 
+// @ts-ignore
+const preloadedState = window.__PRELOADED_STATE__;
+
+// @ts-ignore
+delete window.__PRELOADED_STATE__;
+
+
 export default function configureStore() {
-    return createStore(rootReducer, composeWithDevTools(
+    return createStore(rootReducer, preloadedState, composeWithDevTools(
         applyMiddleware(actionToPlainObject, thunk),
     ));
 
