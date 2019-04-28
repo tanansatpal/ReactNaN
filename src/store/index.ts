@@ -6,8 +6,6 @@ import {actionToPlainObject} from "../shared/middlewares/actionToObject";
 
 const rootReducer = combineReducers(AppReducer);
 
-export type AppState = ReturnType<typeof rootReducer>;
-
 // @ts-ignore
 const preloadedState = window.__PRELOADED_STATE__;
 

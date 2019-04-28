@@ -9,9 +9,8 @@ export const userService = {
 function login(data: { email: string, password: string }) {
     return API.post('login', {data}, {headers: {'Content-Type': 'application/json'}})
         .then(response => {
-            console.log(response);
             localStorage.setItem('token', response.data.token);
-            return response.data.data;
+            return Promise.resolve(response.data);
         });
 }
 

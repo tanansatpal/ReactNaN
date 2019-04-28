@@ -1,13 +1,18 @@
 import React from 'react'
 import {Login} from "../store/Actions";
 import {connect} from "react-redux";
+import {RouteComponentProps} from "react-router";
 
 interface LoginForm {
     email: string;
     password: string;
 }
 
-class LoginPage extends React.Component<{ Login: any }, LoginForm> {
+interface OwnProps extends RouteComponentProps {
+    Login: any
+}
+
+class LoginPage extends React.Component<OwnProps, LoginForm> {
 
     constructor(props: any) {
         super(props);
@@ -25,8 +30,7 @@ class LoginPage extends React.Component<{ Login: any }, LoginForm> {
     };
 
     handleSubmit(event: any) {
-        console.log(this.state);
-        this.props.Login(this.state);
+        this.props.Login(this.state, this.props.history);
         event.preventDefault();
     }
 

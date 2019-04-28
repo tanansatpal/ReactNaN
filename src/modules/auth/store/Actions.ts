@@ -1,4 +1,3 @@
-import {Action} from 'redux';
 import {userService} from "../../../services/auth.service";
 
 export enum AuthActionsTypes {
@@ -12,11 +11,12 @@ export enum AuthActionsTypes {
 }
 
 
-export function Login(values: any) {
+export function Login(values: any, history: any) {
     return async function (dispatch: any) {
         const user = await userService.login(values).catch(err => {
             dispatch(LoginFailed(err));
         });
+        history.push("/user/profile");
         dispatch(LoginSuccess(user))
     }
 }
